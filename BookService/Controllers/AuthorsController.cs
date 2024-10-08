@@ -15,7 +15,12 @@ namespace BookService.Controllers
 {
     public class AuthorsController : ApiController
     {
-        private BookServiceContext db = new BookServiceContext();
+        private BookServiceContext db;
+
+        public AuthorsController(BookServiceContext bookServiceContext)
+        {
+            db = bookServiceContext;
+        }
 
         // GET: api/Authors
         public IQueryable<Author> GetAuthors()
